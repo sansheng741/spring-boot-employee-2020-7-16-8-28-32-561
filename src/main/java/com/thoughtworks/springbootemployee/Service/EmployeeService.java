@@ -17,4 +17,8 @@ public interface EmployeeService {
     void updateEmployeeById(Integer id, Employee employee);
 
     void addEmployee(Employee employee);
+
+    List<Employee> pageQueryEmployee(int page, int pageSize);
+
+    List<Employee> selectEmployeeByGender(String gender);
 }
