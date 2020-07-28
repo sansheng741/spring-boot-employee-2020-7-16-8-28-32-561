@@ -1,16 +1,18 @@
 package com.thoughtworks.springbootemployee.entity;
 
+import java.util.List;
+
 /**
  * Created by CHENCO9 on 7/28/2020 8:04 PM
  */
 public class Company {
     private Integer id;
-    private Employee employee;
+    private List<Employee> employee;
 
     public Company() {
     }
 
-    public Company(Integer id, Employee employee) {
+    public Company(Integer id, List<Employee> employee) {
         this.id = id;
         this.employee = employee;
     }
@@ -23,11 +25,11 @@ public class Company {
         this.id = id;
     }
 
-    public Employee getEmployee() {
+    public List<Employee> getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(List<Employee> employee) {
         this.employee = employee;
     }
 }
