@@ -24,17 +24,17 @@ public class CompanyController {
     }
 
     @GetMapping("/companies/{id}")
-    public Company queryCompanyById(Integer id){
+    public Company queryCompanyById(@PathVariable("id") Integer id){
         return companyService.queryCompanyById(id);
     }
 
     @GetMapping("/companies/{id}/employee")
-    public List<Employee> queryEmpByCompanyId(Integer id){
+    public List<Employee> queryEmpByCompanyId(@PathVariable("id")Integer id){
         return companyService.queryEmpByCompanyId(id);
     }
 
     @GetMapping("/companies/{page}/{pageSize}")
-    public List<Company> pageQueryCompany(int page,int pageSize){
+    public List<Company> pageQueryCompany(@PathVariable("page")int page,@PathVariable("pageSize")int pageSize){
         return companyService.pageQueryCompany(page,pageSize);
     }
 
@@ -44,12 +44,12 @@ public class CompanyController {
     }
 
     @PutMapping("/companies/{id}")
-    public void updateCompanyInfo(Integer id,Company company){
+    public void updateCompanyInfo(@PathVariable("id")Integer id,Company company){
         companyService.updateCompanyInfo(id,company);
     }
 
     @DeleteMapping("/companies/{id}")
-    public void delCompany(Integer id){
+    public void delCompany(@PathVariable("id")Integer id){
         companyService.delCompany(id);
     }
 }
