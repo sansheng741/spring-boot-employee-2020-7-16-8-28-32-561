@@ -19,7 +19,7 @@ public interface CompanyService {
 
     void addCompany(Company company);
 
-    void updateComanyInfo(Integer id, Company company);
+    void updateCompanyInfo(Integer id, Company company);
 
     void delCompany(Integer id);
 }

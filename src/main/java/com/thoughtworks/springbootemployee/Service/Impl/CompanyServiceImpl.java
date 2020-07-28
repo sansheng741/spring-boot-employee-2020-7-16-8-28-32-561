@@ -52,7 +52,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void updateComanyInfo(Integer id, Company company) {
+    public void updateCompanyInfo(Integer id, Company company) {
         delCompany(id);
         addCompany(company);
     }
