@@ -1,5 +1,6 @@
 package com.thoughtworks.springbootemployee;
 
+import com.thoughtworks.springbootemployee.entity.Company;
 import com.thoughtworks.springbootemployee.entity.Employee;
 import org.springframework.stereotype.Repository;
 
@@ -12,8 +13,12 @@ import java.util.List;
 @Repository
 public class Oracle {
     List<Employee> employeeList = new ArrayList<>();
-
+    List<Company> companyList = new ArrayList<>();
     public List<Employee> getEmployeeList() {
         return employeeList;
+    }
+
+    public List<Company> getCompanyList() {
+        return companyList;
     }
 }
