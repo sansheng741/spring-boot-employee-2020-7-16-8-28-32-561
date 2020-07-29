@@ -57,4 +57,9 @@ public class Company {
     public Company() {
 
     }
+
+    public Company(String name, List<Employee> employees) {
+        this.name = name;
+        this.employees = employees;
+    }
 }
