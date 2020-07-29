@@ -1,5 +1,6 @@
 package com.thoughtworks.springbootemployee.Service;
 
+import com.thoughtworks.springbootemployee.entity.Company;
 import com.thoughtworks.springbootemployee.entity.Employee;
 import com.thoughtworks.springbootemployee.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,9 @@ public class CompanyService {
 
     public List<Employee> findAllEmployeesByCompanyId(Integer companyId){
         return null;
+    }
+
+    public List<Company> findAllCompanies() {
+        return companyRepository.findAll();
     }
 }
