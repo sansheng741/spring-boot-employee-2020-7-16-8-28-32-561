@@ -2,7 +2,10 @@ package com.thoughtworks.springbootemployee.controller;
 
 import com.thoughtworks.springbootemployee.Service.CompanyService;
 import com.thoughtworks.springbootemployee.entity.Company;
+import com.thoughtworks.springbootemployee.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,17 @@ public class CompanyController {
     public Company queryCompanyById(@PathVariable("id") Integer id){
         return companyService.findCompanyById(id);
     }
+
+    @GetMapping("/{id}/employees")
+    public List<Employee> queryAllEmployeesByCompanyId(@PathVariable("id") Integer id){
+        return companyService.findAllEmployeesByCompanyId(id);
+    }
+
+    @GetMapping(params = {"page", "size"})
+    public List<Company> getCompaniesByPage(@PageableDefault(size = 2) Pageable pageable) {
+        return companyService.getCompaniesByPage(pageable);
+    }
+
 
 
 
