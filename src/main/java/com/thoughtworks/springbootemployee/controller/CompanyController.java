@@ -45,5 +45,10 @@ public class CompanyController {
         companyService.addCompany(company);
     }
 
+    @PutMapping
+    public void updateCompany(@RequestBody Company company){
+        companyService.updateCompany(company);
+    }
+
 
 }
