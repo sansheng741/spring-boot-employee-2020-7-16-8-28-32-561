@@ -8,6 +8,7 @@ class SpringBootEmployeeApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//given 1 company
 	}
 
 }

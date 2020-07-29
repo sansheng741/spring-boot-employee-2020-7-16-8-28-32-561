@@ -38,4 +38,7 @@ public class CompanyService {
     public void addCompany(Company company){
         companyRepository.save(company);
     }
+
+    public void updateCompany(Company newCompany) {
+    }
 }
