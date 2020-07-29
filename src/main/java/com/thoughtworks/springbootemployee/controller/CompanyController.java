@@ -6,10 +6,7 @@ import com.thoughtworks.springbootemployee.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,17 +21,17 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Company> queryAllCompanies(){
+    public List<Company> queryAllCompanies() {
         return companyService.findAllCompanies();
     }
 
     @GetMapping("/{id}")
-    public Company queryCompanyById(@PathVariable("id") Integer id){
+    public Company queryCompanyById(@PathVariable("id") Integer id) {
         return companyService.findCompanyById(id);
     }
 
     @GetMapping("/{id}/employees")
-    public List<Employee> queryAllEmployeesByCompanyId(@PathVariable("id") Integer id){
+    public List<Employee> queryAllEmployeesByCompanyId(@PathVariable("id") Integer id) {
         return companyService.findAllEmployeesByCompanyId(id);
     }
 
@@ -43,7 +40,10 @@ public class CompanyController {
         return companyService.getCompaniesByPage(pageable);
     }
 
-
+    @PostMapping
+    public void addCompany(@RequestBody Company company) {
+        companyService.addCompany(company);
+    }
 
 
 }

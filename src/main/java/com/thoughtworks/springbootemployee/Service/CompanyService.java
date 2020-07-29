@@ -34,4 +34,8 @@ public class CompanyService {
     public List<Company> getCompaniesByPage(Pageable pageable){
         return companyRepository.findAll(pageable).getContent();
     }
+
+    public void addCompany(Company company){
+        companyRepository.save(company);
+    }
 }
