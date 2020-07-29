@@ -19,7 +19,6 @@ public class Employee {
 
     @JoinColumn(name = "company_id")
     @ManyToOne
-    @JsonIgnore
     private Company company;
 
     public Employee() {
