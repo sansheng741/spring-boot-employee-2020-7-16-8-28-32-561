@@ -15,7 +15,7 @@ public interface CompanyService {
 
     List<Employee> queryEmpByCompanyId(Integer id);
 
-    List<Company> pageQueryCompany(int page,int pageSize);
+    List<Company> pageQueryCompany(Integer page,Integer pageSize);
 
     void addCompany(Company company);
 

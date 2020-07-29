@@ -49,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> pageQueryEmployee(int page, int pageSize) {
+    public List<Employee> pageQueryEmployee(Integer page, Integer pageSize) {
         return oracle.getEmployeeList().stream().skip((page-1)*pageSize).limit(pageSize).collect(Collectors.toList());
     }
 

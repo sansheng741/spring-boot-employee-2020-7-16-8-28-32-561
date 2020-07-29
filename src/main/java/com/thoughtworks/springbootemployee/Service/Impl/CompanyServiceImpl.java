@@ -42,7 +42,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> pageQueryCompany(int page, int pageSize) {
+    public List<Company> pageQueryCompany(Integer page, Integer pageSize) {
         return oracle.getCompanyList().stream().skip((page-1)*pageSize).limit(pageSize).collect(Collectors.toList());
     }
 
