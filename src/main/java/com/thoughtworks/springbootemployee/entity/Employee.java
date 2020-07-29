@@ -13,7 +13,6 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
     private Integer age;
     private String gender;
@@ -58,5 +57,11 @@ public class Employee {
         this.gender = gender;
     }
 
+    public Company getCompany() {
+        return company;
+    }
 
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }

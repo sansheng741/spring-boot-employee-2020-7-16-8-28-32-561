@@ -18,10 +18,8 @@ public class Company {
     private Integer companyId;
     private String  name;
 
-
     @OneToMany(mappedBy = "company")
     private List<Employee> employees;
-
 
     public Integer getCompanyId() {
         return companyId;
@@ -37,5 +35,13 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }
