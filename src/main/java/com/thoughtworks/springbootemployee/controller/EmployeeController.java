@@ -36,18 +36,18 @@ public class EmployeeController {
         employeeService.delEmployeeById(id);
     }
 
-    @PutMapping("/employees/{id}")
+    @PutMapping(value = "/employees/{id}")
     public void updateEmployees(@PathVariable("id") Integer id, Employee employee) {
         employeeService.updateEmployeeById(id, employee);
     }
 
-    @GetMapping("/employees/{page}/{pageSize}")
-    public List<Employee> pageQueryEmployee(@PathVariable("page") Integer page, @PathVariable("pageSize") Integer pageSize) {
+    @GetMapping(value = "/employees",params = {"page","pageSize"})
+    public List<Employee> pageQueryEmployee(@RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
         return employeeService.pageQueryEmployee(page, pageSize);
     }
 
-    @GetMapping("/employees/gender={gender}")
-    public List<Employee> queryEmployeesByGender(@PathVariable("gender") String gender) {
+    @GetMapping(value = "/employees",params = {"gender"})
+    public List<Employee> queryEmployeesByGender(@RequestParam("gender") String gender) {
         return employeeService.selectEmployeeByGender(gender);
     }
 

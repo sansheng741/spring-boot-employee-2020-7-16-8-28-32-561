@@ -33,12 +33,12 @@ public class CompanyController {
         return companyService.queryEmpByCompanyId(id);
     }
 
-    @GetMapping("/companies/{page}/{pageSize}")
-    public List<Company> pageQueryCompany(@PathVariable("page")int page,@PathVariable("pageSize")int pageSize){
+    @GetMapping(value = "/companies",params = {"page","pageSize"})
+    public List<Company> pageQueryCompany(@RequestParam("page")Integer page,@RequestParam("pageSize")Integer pageSize){
         return companyService.pageQueryCompany(page,pageSize);
     }
 
-    @PostMapping("companies")
+    @PostMapping("/companies")
     public void addCompany(Company company){
         companyService.addCompany(company);
     }
