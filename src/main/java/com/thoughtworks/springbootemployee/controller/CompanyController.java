@@ -25,6 +25,11 @@ public class CompanyController {
         return companyService.findAllCompanies();
     }
 
+    @GetMapping("/{id}")
+    public Company queryCompanyById(@PathVariable("id") Integer id){
+        return companyService.findCompanyById(id);
+    }
+
 
 
 }
