@@ -11,44 +11,21 @@ import java.util.List;
  * Created by CHENCO9 on 7/28/2020 4:59 PM
  */
 @RestController
+@RequestMapping("employees")
 public class EmployeeController {
-
-    @Autowired
     private EmployeeService employeeService;
-
-    @GetMapping("/employees")
-    public List<Employee> getAllEmployees() {
-        return employeeService.selectAllEmployees();
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
-    @GetMapping("/employees/{id}")
-    public Employee getEmployees(@PathVariable("id") Integer id) {
-        return employeeService.selectEmployeeById(id);
+    @GetMapping
+    public List<Employee> findAll(){
+        return employeeService.findAll();
     }
 
-    @PostMapping("/employees")
-    public void addEmployees(Employee employee) {
-        employeeService.addEmployee(employee);
-    }
-
-    @DeleteMapping("/employees/{id}")
-    public void deleteEmployees(@PathVariable("id") Integer id) {
-        employeeService.delEmployeeById(id);
-    }
-
-    @PutMapping("/employees/{id}")
-    public void updateEmployees(@PathVariable("id") Integer id, Employee employee) {
-        employeeService.updateEmployeeById(id, employee);
-    }
-
-    @GetMapping("/employees/{page}/{pageSize}")
-    public List<Employee> pageQueryEmployee(@PathVariable("page") Integer page, @PathVariable("pageSize") Integer pageSize) {
-        return employeeService.pageQueryEmployee(page, pageSize);
-    }
-
-    @GetMapping("/employees/gender={gender}")
-    public List<Employee> queryEmployeesByGender(@PathVariable("gender") String gender) {
-        return employeeService.selectEmployeeByGender(gender);
+    @GetMapping("/{id}")
+    public Employee findEmployeeById(@PathVariable("id") Integer id) {
+        return  employeeService.findEmployeeByID(id);
     }
 
 

@@ -1,25 +1,22 @@
 package com.thoughtworks.springbootemployee.Service;
 
-import com.thoughtworks.springbootemployee.entity.Company;
 import com.thoughtworks.springbootemployee.entity.Employee;
+import com.thoughtworks.springbootemployee.repository.CompanyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by CHENCO9 on 7/28/2020 8:08 PM
- */
-public interface CompanyService {
-    List<Company> queryAllCompany();
+@Service
+public class CompanyService {
 
-    Company queryCompanyById(Integer id);
+    private CompanyRepository companyRepository;
 
-    List<Employee> queryEmpByCompanyId(Integer id);
+    public CompanyService(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
-    List<Company> pageQueryCompany(int page,int pageSize);
-
-    void addCompany(Company company);
-
-    void updateCompanyInfo(Integer id, Company company);
-
-    void delCompany(Integer id);
+    public List<Employee> findAllEmployeesByCompanyId(Integer companyId){
+        return null;
+    }
 }

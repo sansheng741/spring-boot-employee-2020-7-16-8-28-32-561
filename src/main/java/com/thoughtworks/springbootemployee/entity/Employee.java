@@ -1,22 +1,29 @@
 package com.thoughtworks.springbootemployee.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+
 /**
  * Created by CHENCO9 on 7/28/2020 4:48 PM
  */
+
+@Entity
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
     private Integer age;
     private String gender;
 
-    public Employee() {
-    }
+    @JoinColumn(name = "company_id")
+    @ManyToOne
+    @JsonIgnore
+    private Company company;
 
-    public Employee(Integer id, String name, Integer age, String gender) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+    public Employee() {
     }
 
     public Integer getId() {
@@ -50,4 +57,6 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+
 }
